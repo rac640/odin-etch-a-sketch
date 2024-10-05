@@ -7,29 +7,21 @@ gridContainer.style.border = "3px solid blue";
 
 // Creating 256 boxes inside of the container using a function 
 
+
 for (i=0; i < 256 ; i++){
     const gridSquare = document.createElement('div');
+
+    // This part of the code, courtesy of: https://stackoverflow.com/questions/42215029/distribute-div-children-evenly-over-entire-height-and-width-of-container
     gridSquare.setAttribute("style", "color: blue; border: 1px solid black; min-width:6%;   flex:1 1 auto;");
     gridContainer.appendChild(gridSquare);
-    
+   
+   
+    // step 3: changing color of div when hovered over. 
+
+    gridSquare.addEventListener("mouseover", () => {
+        gridSquare.style["background-color"] ="lightblue";
+      });  
 }
 
 
 
-
-
-
-
-// const container = document.getElementById("container");
-
-// // div container 
-// container.setAttribute("style", "display: flex; height: 100vh; width: 100vw; border:1px solid blue; flex-wrap: wrap; padding: 3px;justify-content: space-between;")
-
-// for (let i = 0; i < 256; i++){
-//     const a = document.createElement("div");
-//     a.setAttribute("style", " flex: 1 1 auto; min-width: 6%; border: 1px solid black;");
-
-
-    
-//     container.appendChild(a);
-// }
