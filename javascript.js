@@ -19,7 +19,7 @@ gridContainer.setAttribute("style", "display: flex; flex-wrap: wrap; border: 3px
 // 3. Divide height of container by # of squres to put on one side to get size of one square. THAT WILL BE PIXELS FOR HEIGHT OF BOX. 
 
 
-// default width 
+// default width and height
 widthOneSquare = 500/16;
 
 heightOneSquare = 500/16;
@@ -44,10 +44,38 @@ for (i=0; i < 256 ; i++){
 
 let pixelSizeButton = document.getElementById("btn");
 
+
+// Clear Grid Button: When pressed should clear grid.
+let clearGridButton = document.getElementById("clear");
+clearGridButton.addEventListener("click", ()=> {
+  gridContainer.textContent="";
+
+  // after clearing grid, should run the same code to color grid. 
+  for (i=0; i < 256 ; i++){
+    const gridSquare = document.createElement('div');
+    // This part of the code, courtesy of: https://stackoverflow.com/questions/42215029/distribute-div-children-evenly-over-entire-height-and-width-of-container
+    gridSquare.setAttribute("style", ` width:${widthOneSquare}px; height:${heightOneSquare}px;flex: 1 1 auto`);
+
+    gridContainer.appendChild(gridSquare);
+   
+   
+    // step 3: changing color of div when hovered over. 
+
+    gridSquare.addEventListener("mouseover", () => {
+        gridSquare.style["background-color"] ="lightblue";
+      });  
+}
+
+}
+
+);
+
+
  function customPixelSizeFunction(){
    
     // this is how many pixels the user wants. 
     let pixelInput = prompt("How many pixels do you want?");
+
 
     //Any Input less or more = error, including non-numbers 
     if ( isNaN(pixelInput) || pixelInput <1 || pixelInput >100){

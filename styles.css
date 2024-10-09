@@ -1,4 +1,9 @@
 body{
     margin: 0px;
     padding: 0px;
+    background-color: bisque;
+}
+
+#gridContainer{
+    background-color: white;
 }
