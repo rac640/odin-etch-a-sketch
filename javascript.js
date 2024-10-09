@@ -1,6 +1,6 @@
 const header = document.getElementById("header");
 
-header.setAttribute("style", "text-align: center; margin: 0; padding: 10px; background-color: yellow;")
+header.setAttribute("style", "text-align: center; margin: 0; padding: 10px;")
 
 // This is the default game, where the grid will be 16x16
 const gridContainer = document.getElementById("gridContainer");
@@ -9,14 +9,21 @@ const gridContainer = document.getElementById("gridContainer");
 const buttonsDiv = document.getElementById("buttonsDiv");
 buttonsDiv.setAttribute("style", "text-align: center; padding: 10px; margin: 20px;");
 
+
+
+const rainbowButton = document.createElement('button');
+
+
+
+
+
 // Creating the container that will hold the boxes. 
 gridContainer.setAttribute("style", "display: flex; flex-wrap: wrap; border: 3px solid blue; width: 500px; height: 500px; margin: auto; border-sizing: border-box;");
 
 
 // to make perfect square pixels:
-// 1. Calculate width of container. 
-// 2. Divide width of container by # of squares to put on one side to get size of one square. THAT WILL BE PIXELS FOR WIDTH OF BOX. 
-// 3. Divide height of container by # of squres to put on one side to get size of one square. THAT WILL BE PIXELS FOR HEIGHT OF BOX. 
+// 1. Calculate width and height of container (Should be the same)
+// 2. Divide width of container by # of squares to put on one side to get size of one square. THAT WILL BE PIXELS FOR WIDTH AND HEIGHT OF BOX. 
 
 
 // default width and height

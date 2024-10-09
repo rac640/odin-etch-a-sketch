@@ -1,3 +1,6 @@
+#header{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 body{
     margin: 0px;
     padding: 0px;
@@ -6,4 +9,12 @@ body{
 
 #gridContainer{
     background-color: white;
+    box-shadow: 10px 10px;
+
+}
+
+button{
+    border-radius: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
