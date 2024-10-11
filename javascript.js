@@ -1,29 +1,22 @@
 const header = document.getElementById("header");
 
-header.setAttribute("style", "text-align: center; margin: 0; padding: 10px;")
+header.setAttribute("style", "text-align: center; margin: 0; padding: 10px; text-shadow: 5px 5px 2px grey;")
 
-// This is the default game, where the grid will be 16x16
+
+// This is for the default game, where the grid will be 16x16
 const gridContainer = document.getElementById("gridContainer");
 
-
+// styling of the buttons 
 const buttonsDiv = document.getElementById("buttonsDiv");
 buttonsDiv.setAttribute("style", "text-align: center; padding: 10px; margin: 20px;");
 
 
-
-const rainbowButton = document.createElement('button');
-
-
-
-
+ 
+ 
 
 // Creating the container that will hold the boxes. 
 gridContainer.setAttribute("style", "display: flex; flex-wrap: wrap; border: 3px solid blue; width: 500px; height: 500px; margin: auto; border-sizing: border-box;");
 
-
-// to make perfect square pixels:
-// 1. Calculate width and height of container (Should be the same)
-// 2. Divide width of container by # of squares to put on one side to get size of one square. THAT WILL BE PIXELS FOR WIDTH AND HEIGHT OF BOX. 
 
 
 // default width and height
@@ -47,17 +40,27 @@ for (i=0; i < 256 ; i++){
 }
 
 
+// creation of Random Color Button 
+let randColorBtn = document.createElement("button");
+randColorBtn.textContent = "Random Color Button";
+buttonsDiv.appendChild(randColorBtn);
+
+// when clicking Random Color Button, it should change the 
+
+
+
+
+
 // When you click button, it will run function to "play game". I will clear the board by deleting gridContainer, and make an identical one. 
 
 let pixelSizeButton = document.getElementById("btn");
-
 
 // Clear Grid Button: When pressed should clear grid.
 let clearGridButton = document.getElementById("clear");
 clearGridButton.addEventListener("click", ()=> {
   gridContainer.textContent="";
 
-  // after clearing grid, should run the same code to color grid. 
+  // after clearing grid, should run the same code to be able to color the grid again. 
   for (i=0; i < 256 ; i++){
     const gridSquare = document.createElement('div');
     // This part of the code, courtesy of: https://stackoverflow.com/questions/42215029/distribute-div-children-evenly-over-entire-height-and-width-of-container
@@ -66,7 +69,7 @@ clearGridButton.addEventListener("click", ()=> {
     gridContainer.appendChild(gridSquare);
    
    
-    // step 3: changing color of div when hovered over. 
+    // Changing color of div when hovered over. 
 
     gridSquare.addEventListener("mouseover", () => {
         gridSquare.style["background-color"] ="lightblue";
@@ -74,6 +77,11 @@ clearGridButton.addEventListener("click", ()=> {
 }
 
 }
+
+
+
+
+
 
 );
 
@@ -114,12 +122,17 @@ clearGridButton.addEventListener("click", ()=> {
             gridSquare.addEventListener("mouseover", () => {
                 gridSquare.style["background-color"] ="lightblue";
               });  
+
+
+              
         }
         
 
     }
 
  }
+
+
 
 // When you click this button, it should give you a prompt asking for the pixel size (16-100).
 pixelSizeButton.addEventListener("click", customPixelSizeFunction);
