@@ -45,7 +45,84 @@ let randColorBtn = document.createElement("button");
 randColorBtn.textContent = "Random Color Button";
 buttonsDiv.appendChild(randColorBtn);
 
-// when clicking Random Color Button, it should change the 
+// when clicking Random Color Button, it should 1. Clear Board, 2. Have User INput Div Size, 3. create Divs again, and 4. Add eventListener to Divs; when hovered, change colors. 
+
+randColorBtn.addEventListener("click", ()=>{
+  let pixelInput = prompt("How many pixels do you want?");
+
+
+  //Any Input less or more = error, including non-numbers 
+  if ( isNaN(pixelInput) || pixelInput <1 || pixelInput >100){
+      alert("You need to put a valid input (a number between 1 and 100)!");
+      // customPixelSizeFunction();
+  }
+
+  // input should be an integer between 16 and 100. 
+  else if (pixelInput >= 1 || pixelInput <=100){
+      // If user input is valid, the first step is to clear the board and create a new, identical one. 
+      // clearing the grid 
+      gridContainer.textContent="";
+
+      // Taking user input for boxes (Ex: User Enters 18 pixels)
+      let totalBoxes = pixelInput * pixelInput;
+      
+      // finding custom square width and height  
+      let customSquareWidth = 500/pixelInput;
+
+      //    creating the custom squares 
+      for (i=0; i < totalBoxes ; i++){
+          const gridSquare = document.createElement('div');
+          // This part of the code, courtesy of: https://stackoverflow.com/questions/42215029/distribute-div-children-evenly-over-entire-height-and-width-of-container
+          gridSquare.setAttribute("style", ` width:${customSquareWidth}px; height:${customSquareWidth}px;flex: 1 1 auto`);
+      
+          gridContainer.appendChild(gridSquare);
+          
+          
+          gridSquare.addEventListener("mouseover", () => {
+
+
+// *******BELOW CODE IS FROM THIS WEBSITE: https://www.freecodecamp.org/news/generate-colors-in-javascript/ 
+
+const hexCharacters = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"]
+
+
+
+function getCharacter(index) {
+    return hexCharacters[index]
+}
+
+function generateNewColor() {
+    let hexColorRep = "#"
+
+    for (let index = 0; index < 6; index++){
+        const randomPosition = Math.floor ( Math.random() * hexCharacters.length ) 
+        hexColorRep += getCharacter( randomPosition )
+    }
+
+    return hexColorRep
+}
+
+    
+              gridSquare.style["background-color"] = generateNewColor();
+            });  
+
+// ******************ABOVE CODE IS FROM HERE: https://www.freecodecamp.org/news/generate-colors-in-javascript/ 
+
+            
+            // INCLUDE OPACITY PART HERE 
+
+
+            
+      }    
+
+  }
+
+});
+
+
+
+
+
 
 
 
@@ -94,7 +171,7 @@ clearGridButton.addEventListener("click", ()=> {
 
     //Any Input less or more = error, including non-numbers 
     if ( isNaN(pixelInput) || pixelInput <1 || pixelInput >100){
-        alert("You need to put a valid input (a number between 16 and 100)!");
+        alert("You need to put a valid input (a number between 1 and 100)!");
         // customPixelSizeFunction();
     }
 
@@ -134,5 +211,5 @@ clearGridButton.addEventListener("click", ()=> {
 
 
 
-// When you click this button, it should give you a prompt asking for the pixel size (16-100).
+// When you click this button, it should give you a prompt asking for the pixel size (1-100).
 pixelSizeButton.addEventListener("click", customPixelSizeFunction);
