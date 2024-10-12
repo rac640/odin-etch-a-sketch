@@ -11,9 +11,6 @@ const buttonsDiv = document.getElementById("buttonsDiv");
 buttonsDiv.setAttribute("style", "text-align: center; padding: 10px; margin: 20px;");
 
 
- 
- 
-
 // Creating the container that will hold the boxes. 
 gridContainer.setAttribute("style", "display: flex; flex-wrap: wrap; border: 3px solid blue; width: 500px; height: 500px; margin: auto; border-sizing: border-box;");
 
@@ -85,8 +82,6 @@ randColorBtn.addEventListener("click", ()=>{
 
 const hexCharacters = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"]
 
-
-
 function getCharacter(index) {
     return hexCharacters[index]
 }
@@ -109,8 +104,6 @@ function generateNewColor() {
 // ******************ABOVE CODE IS FROM HERE: https://www.freecodecamp.org/news/generate-colors-in-javascript/ 
 
             
-            // INCLUDE OPACITY PART HERE 
-
 
             
       }    
